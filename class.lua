@@ -40,6 +40,11 @@ class.clone = function( ess, cache )
     end
 end
 
+class.name = function( instance )
+    local mt = getmetatable(instance)
+    return mt and (mt.__class or mt.__instanceof)
+end
+
 -- local c = class:Test{ a=1, b="", ... }:extends{ ParentClass, OtherParent, ... }
 setmetatable(class, {
     __index = function( _, name )
